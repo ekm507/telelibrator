@@ -29,6 +29,7 @@ def process_text_message(text:str,chat_id, message_id):
 
 alternative_services_compiled = []
 
+# this function should be executed once before other functions
 def compile_services_regex():
 
     global alternative_services_compiled
@@ -50,24 +51,39 @@ def find_and_replace_links(text:str):
 
     global alternative_services_compiled
 
+    # check method of replying
     if reply_mode == "substitute":
+
         outText = text
         should_substtiute = False
+
         # substitute all links with alternative ones.
         for alt_regex in alternative_services_compiled:
+
+            # check if any links were found
             found_links = re.findall('(' + alt_regex[0] + ')', text)
             if len(found_links) > 0:
                 should_substtiute = True
+
             outText = re.sub(alt_regex[0], random.choice(alt_regex[1]), outText)
+
+        # if no links were found, reply nothing
         if should_substtiute == False:
             outText = ''
 
     elif reply_mode == "links":
         # reply links only
+
         outText = ""
+
+        # find all links
         for alt_regex in alternative_services_compiled:
             found_links = re.findall('(' + alt_regex[0] + ')', text)
+
+            # add alternative of found links to outText
             for found_link in found_links:
                 outText += re.sub(alt_regex[0], random.choice(alt_regex[1]), found_link[0]) + '\n'
 
+    # if nothing were found, will return empty string
+    # otherwise, depending on the method, it will return result
     return outText
