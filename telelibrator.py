@@ -2,9 +2,10 @@
 
 # import bot configurations
 from config import bot_token
+from functions import process_text_message
 import requests
 from time import sleep
-
+import threading
 
 # time to sleep between requests
 sleep_time = 0.1
@@ -66,6 +67,12 @@ while(True):
             # do nothing and just reloop it
             continue
 
+
+        if message_type == 'text':
+            # create a new thread for processing command
+            x = threading.Thread(target=process_text_message, args=(text,chat_id, message_id))
+            # start the thread
+            x.start()
 
         # increase message offset. sending next request with this offset is like marking message as read.
         message_offset = json_message['update_id'] + 1
