@@ -19,7 +19,7 @@ alternative_services_links = {
 
 
 alternative_services_regex_noncompiled = {
-    "nitter" : (r'https://(?:www.)twitter.com/(.*)\b', r'LINK/\1 '),
+    "nitter" : (r'https://(?:www.)?twitter.com/(.*)\b', r'LINK/\1 '),
     "bibliogram_userpage" : (r'https://(?:www.)?instagram.com/(?!p/)(.*)\b', r'LINK/\1 '),
     "bibliogram_post" : (r'https://(?:www.)instagram.com/(?:p/)(.*)\b', fr'LINK/\1 '),
 }
