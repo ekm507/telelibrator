@@ -1,5 +1,11 @@
 import requests
+import re
+import random
 from config import bot_token
+from config import alternative_services_links
+from config import alternative_services_regex_noncompiled
+from config import reply_mode
+
 # functions for messages are in this file
 
 # get a text message and do whatever is needed
