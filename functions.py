@@ -24,7 +24,8 @@ def process_text_message(text:str,chat_id, message_id):
         "reply_to_message_id":message_id,
     }
 
-    requests.post(f'https://api.telegram.org/bot{bot_token}/sendMessage', data=message)
+    if len(text_to_send) > 0:
+        requests.post(f'https://api.telegram.org/bot{bot_token}/sendMessage', data=message)
 
 alternative_services_compiled = []
 
