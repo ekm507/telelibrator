@@ -88,3 +88,7 @@ while(True):
     except requests.exceptions.ConnectionError:
         # print error text but do not kill the bot.
         print('connection error')
+    
+    except KeyboardInterrupt:
+        print('exiting')
+        exit(0)
