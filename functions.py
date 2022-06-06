@@ -50,10 +50,16 @@ def find_and_replace_links(text:str):
     global alternative_services_compiled
 
     if reply_mode == "substitute":
+        outText = text
+        should_substtiute = False
         # substitute all links with alternative ones.
         for alt_regex in alternative_services_compiled:
-            text = re.sub(alt_regex[0], random.choice(alt_regex[1]), text)
-        outText = text
+            found_links = re.findall('(' + alt_regex[0] + ')', text)
+            if len(found_links) > 0:
+                should_substtiute = True
+            outText = re.sub(alt_regex[0], random.choice(alt_regex[1]), outText)
+        if should_substtiute == False:
+            outText = ''
 
     # elif reply_mode == "links":
     #     # reply links only
