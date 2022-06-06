@@ -1,0 +1,4 @@
+# config file for bot. rename this to "config.py"
+
+# paste bot token here
+bot_token = "" # "something:something"
