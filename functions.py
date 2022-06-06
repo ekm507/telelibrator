@@ -20,6 +20,23 @@ def process_text_message(text:str,chat_id, message_id):
 
     requests.post(f'https://api.telegram.org/bot{bot_token}/sendMessage', data=message)
 
+alternative_services_compiled = []
+
+def compile_services_regex():
+
+    global alternative_services_compiled
+
+    for service_name in alternative_services_links:
+        service_links = alternative_services_links[service_name]
+        if len(service_links) > 0:
+
+            alt_regex = alternative_services_regex_noncompiled[service_name]
+            compiled_links = [
+                alt_regex[1].replace('LINK', service_link)
+                for service_link in service_links
+            ]
+            alternative_services_compiled.append( (alt_regex[0],compiled_links) )
+
 
 # this function will find links to services in a message and return alternative links.
 def find_and_replace_links(text:str):

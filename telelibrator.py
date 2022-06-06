@@ -3,6 +3,7 @@
 # import bot configurations
 from config import bot_token
 from functions import process_text_message
+from functions import compile_services_regex
 import requests
 from time import sleep
 import threading
@@ -13,6 +14,7 @@ sleep_time = 0.1
 message_limit = 1
 message_offset = 0
 
+compile_services_regex()
 
 # main bot loop
 while(True):
