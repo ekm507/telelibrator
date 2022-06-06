@@ -4,7 +4,7 @@
 bot_token = "" # "something:something"
 
 # replying mode
-# can be one of these: substitute, links
+# can be one of these: substitute
 reply_mode = "substitute"
 
 alternative_services_links = {

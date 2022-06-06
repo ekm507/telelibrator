@@ -55,10 +55,10 @@ def find_and_replace_links(text:str):
             text = re.sub(alt_regex[0], random.choice(alt_regex[1]), text)
         outText = text
 
-    elif reply_mode == "links":
-        # reply links only
-        outText = ""
-        for alt_regex in alternative_services_compiled:
-            outText += re.sub(alt_regex[0], random.choice(alt_regex[1]), text) + '\n'
+    # elif reply_mode == "links":
+    #     # reply links only
+    #     outText = ""
+    #     for alt_regex in alternative_services_compiled:
+    #         outText += re.sub(alt_regex[0], random.choice(alt_regex[1]), text) + '\n'
 
     return outText
