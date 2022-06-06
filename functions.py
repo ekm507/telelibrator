@@ -12,7 +12,7 @@ def process_text_message(text:str,chat_id, message_id):
         # chat id should be id of the one who had requested
         "chat_id":chat_id,
         # text is command output in monospace format
-        "text":'```\n' + text_to_send + '\n```',
+        "text":text_to_send,
         # set parse mode to markdown so that text can be in monospace
         "parse_mode":"HTML",
         "reply_to_message_id":message_id,
