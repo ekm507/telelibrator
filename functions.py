@@ -1,5 +1,5 @@
 import requests
-
+from config import bot_token
 # functions for messages are in this file
 
 # get a text message and do whatever is needed
