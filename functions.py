@@ -40,4 +40,19 @@ def compile_services_regex():
 
 # this function will find links to services in a message and return alternative links.
 def find_and_replace_links(text:str):
-    return "test"
+
+    global alternative_services_compiled
+
+    if reply_mode == "substitute":
+        # substitute all links with alternative ones.
+        for alt_regex in alternative_services_compiled:
+            text = re.sub(alt_regex[0], random.choice(alt_regex[1]), text)
+        outText = text
+
+    elif reply_mode == "links":
+        # reply links only
+        outText = ""
+        for alt_regex in alternative_services_compiled:
+            outText += re.sub(alt_regex[0], random.choice(alt_regex[1]), text) + '\n'
+
+    return outText
