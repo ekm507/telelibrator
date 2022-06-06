@@ -61,10 +61,12 @@ def find_and_replace_links(text:str):
         if should_substtiute == False:
             outText = ''
 
-    # elif reply_mode == "links":
-    #     # reply links only
-    #     outText = ""
-    #     for alt_regex in alternative_services_compiled:
-    #         outText += re.sub(alt_regex[0], random.choice(alt_regex[1]), text) + '\n'
+    elif reply_mode == "links":
+        # reply links only
+        outText = ""
+        for alt_regex in alternative_services_compiled:
+            found_links = re.findall('(' + alt_regex[0] + ')', text)
+            for found_link in found_links:
+                outText += re.sub(alt_regex[0], random.choice(alt_regex[1]), found_link[0]) + '\n'
 
     return outText
