@@ -18,6 +18,8 @@ alternative_services_links = {
         ],
     "piped":[
         ],
+    "libreddit":[
+    ],
 
 }
 
@@ -28,4 +30,5 @@ alternative_services_regex_noncompiled = {
     "bibliogram_post": (r'https://(?:www.)instagram.com/(?:p/)(.*)\b', fr'LINK/\1 '),
     "invidious": (r'https://(?:www.)?youtube.com/(.*)\b', r'LINK/\1'),
     "piped": (r'https://(?:www.)?youtube.com/(.*)\b', r'LINK/\1'),
+    "libreddit": (r'https://(?:www.)?reddit.com/(.*)\b', r'LINK/\1'),
 }
