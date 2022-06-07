@@ -24,6 +24,7 @@ def process_text_message(text:str,chat_id, message_id):
         "reply_to_message_id":message_id,
     }
 
+    # send message to telegram
     if len(text_to_send) > 0:
         requests.post(f'https://api.telegram.org/bot{bot_token}/sendMessage', data=message)
 
