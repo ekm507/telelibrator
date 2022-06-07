@@ -1,5 +1,5 @@
 # TeleLibrator
-a telegram bot for converting links to commercial online services like Youtube, Soundcloud, Instagram, Twitter,… into a privacy-respecting alternative.  
+a telegram bot for converting links to commercial online services like Youtube, Reddit, Instagram, Twitter,… into a privacy-respecting alternative.  
 it works by replying the alternative link to the message.
 
 ## how to set up
@@ -12,3 +12,12 @@ it works by replying the alternative link to the message.
     2. set reply mode
     3. add links to your favorite services. each service can have multiple links and one of them will be used randomly.
 5. run `telelibrator.py` with `python3`
+
+## supporting services by now:
+
+- nitter for twitter
+- bibliogram for instagram
+- invidious for youtube
+- piped for youtube
+- libreddit for reddit
+- teddit for reddit
