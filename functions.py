@@ -9,28 +9,34 @@ from config import reply_mode
 # functions for messages are in this file
 
 # get a text message and do whatever is needed
-def process_text_message(text:str,chat_id, message_id):
+
+
+def process_text_message(text: str, chat_id, message_id):
 
     text_to_send = find_and_replace_links(text)
 
     # make a message to send to telegram
     message = {
         # chat id should be id of the one who had requested
-        "chat_id":chat_id,
+        "chat_id": chat_id,
         # text is command output in monospace format
-        "text":text_to_send,
+        "text": text_to_send,
         # set parse mode to markdown so that text can be in monospace
-        "parse_mode":"HTML",
-        "reply_to_message_id":message_id,
+        "parse_mode": "HTML",
+        "reply_to_message_id": message_id,
     }
 
     # send message to telegram
     if len(text_to_send) > 0:
-        requests.post(f'https://api.telegram.org/bot{bot_token}/sendMessage', data=message)
+        requests.post(
+            f'https://api.telegram.org/bot{bot_token}/sendMessage', data=message)
+
 
 alternative_services_compiled = []
 
 # this function should be executed once before other functions
+
+
 def compile_services_regex():
 
     global alternative_services_compiled
@@ -44,11 +50,12 @@ def compile_services_regex():
                 alt_regex[1].replace('LINK', service_link)
                 for service_link in service_links
             ]
-            alternative_services_compiled.append( (alt_regex[0],compiled_links) )
+            alternative_services_compiled.append(
+                (alt_regex[0], compiled_links))
 
 
 # this function will find links to services in a message and return alternative links.
-def find_and_replace_links(text:str):
+def find_and_replace_links(text: str):
 
     global alternative_services_compiled
 
@@ -66,7 +73,8 @@ def find_and_replace_links(text:str):
             if len(found_links) > 0:
                 should_substtiute = True
 
-            outText = re.sub(alt_regex[0], random.choice(alt_regex[1]), outText)
+            outText = re.sub(
+                alt_regex[0], random.choice(alt_regex[1]), outText)
 
         # if no links were found, reply nothing
         if should_substtiute == False:
@@ -83,7 +91,8 @@ def find_and_replace_links(text:str):
 
             # add alternative of found links to outText
             for found_link in found_links:
-                outText += re.sub(alt_regex[0], random.choice(alt_regex[1]), found_link[0]) + '\n'
+                outText += re.sub(alt_regex[0],
+                                  random.choice(alt_regex[1]), found_link[0]) + '\n'
 
     # if nothing were found, will return empty string
     # otherwise, depending on the method, it will return result
