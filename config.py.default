@@ -20,6 +20,8 @@ alternative_services_links = {
         ],
     "libreddit":[
     ],
+    "teddit":[
+    ],
 
 }
 
@@ -31,4 +33,5 @@ alternative_services_regex_noncompiled = {
     "invidious": (r'https://(?:www.)?youtube.com/(.*)\b', r'LINK/\1'),
     "piped": (r'https://(?:www.)?youtube.com/(.*)\b', r'LINK/\1'),
     "libreddit": (r'https://(?:www.)?reddit.com/(.*)\b', r'LINK/\1'),
+    "teddit": (r'https://(?:www.)?reddit.com/(.*)\b', r'LINK/\1'),
 }
