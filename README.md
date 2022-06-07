@@ -10,7 +10,8 @@ it works by replying the alternative link to the message.
 4. configure config.py file:
     1. set bot tokenn
     2. set reply mode
-    3. add links to your favorite services. each service can have multiple links and one of them will be used randomly.
+    3. add links to your favorite services. each service can have multiple links and one of them will be used randomly.  
+    **tip**: there is a bunch of links in file `libredirect_links.py` that you can use. alternatively you can run `get_list.py` to get a list from libreDirect.
 5. run `telelibrator.py` with `python3`
 
 ## supporting services by now:
