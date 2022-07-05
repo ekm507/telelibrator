@@ -177,5 +177,12 @@ alternative_services_links = {
                'https://teddit.adminforge.de',
                'https://teddit.bus-hit.me',
                'https://teddit.froth.zone',
-               'https://trom.tf/']
+               'https://trom.tf/'],
+    'quetre':[
+        "https://quetre.pussthecat.org",
+        "https://quetre.herokuapp.com",
+        "https://quora.vern.cc",
+        "https://wuetre.herokuapp.com",
+        "https://quetreus.herokuapp.com",
+    ]
 }
