@@ -22,6 +22,9 @@ alternative_services_links = {
     ],
     "teddit": [
     ],
+    "quetre": [
+
+    ],
 
 }
 
@@ -34,4 +37,5 @@ alternative_services_regex_noncompiled = {
     "piped": (r'https://(?:www.)?youtube.com/(.*)\b', r'LINK/\1'),
     "libreddit": (r'https://(?:www.)?reddit.com/(.*)\b', r'LINK/\1'),
     "teddit": (r'https://(?:www.)?reddit.com/(.*)\b', r'LINK/\1'),
+    "quetre": (r'https://(?:www.)?quora.com/(.*)\b', r'LINK/\1'),
 }
